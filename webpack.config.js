@@ -35,10 +35,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "starter",
+      name: "header",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./Header": "./src/Header",
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
